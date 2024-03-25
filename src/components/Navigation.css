@@ -1,0 +1,83 @@
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+}
+
+.navigation a {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.navigation a:hover {
+  text-decoration: underline;
+}
+
+.icon {
+  margin-right: 5px;
+  color: #fff; /* Set icon color to white */
+}
+
+.logo {
+  height: 30px;
+  margin-right: 10px;
+}
+
+/* Style for dropdown */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #333; /* Set dropdown menu background color */
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown-menu a {
+  color: black; /* Set dropdown item text color to white */
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-menu a:hover {
+  text-decoration: underline;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.combined-icon {
+  display: flex;
+  align-items: center;
+}
+
+.laptop-icon,
+.desktop-icon {
+  margin-right: 5px;
+  color: #fff; /* Set combined icon color to white */
+}
+
+.white-bar {
+  background-color: #333;
+  color: #fff;
+}
