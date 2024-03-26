@@ -5,6 +5,7 @@ import Contactus from "./views/Contactus";
 import Laptops from "./views/Laptops";
 import Desktop from "./views/Desktop";
 import GamingLaptops from "./components/GamingLaptops";
+import Cart from "./components/Cart";
 
 const routes = [
   {
@@ -41,6 +42,11 @@ const routes = [
     name: "GamingLaptops",
     path: "/gaminglaptops",
     element: <GamingLaptops />,
+  },
+  {
+    name: "Cart",
+    path: "/cart",
+    element: <Cart />,
   },
 ];
 

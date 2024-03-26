@@ -186,9 +186,6 @@ const GamingLaptops = () => {
                   >
                     <FontAwesomeIcon icon={faCartPlus} /> Add to Cart
                   </button>
-                  <button className="view-details-button">
-                    <FontAwesomeIcon icon={faEye} /> View Details
-                  </button>
                   <button className="wishlist-button">
                     <FontAwesomeIcon icon={faHeart} /> Add to Wishlist
                   </button>

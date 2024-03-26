@@ -10,6 +10,7 @@ import "./App.css";
 import Contactus from "./views/Contactus";
 import Desktop from "./views/Desktop";
 import GamingLaptops from "./components/GamingLaptops";
+import Cart from "./components/Cart";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/contactus" element={<Contactus />} />
+        <Route path="/cart" element={<Cart />} />
 
         <Route path="/desktop" element={<Desktop />} />
         <Route path="/gaminglaptops" element={<GamingLaptops />} />
