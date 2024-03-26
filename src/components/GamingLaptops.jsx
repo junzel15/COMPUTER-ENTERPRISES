@@ -8,6 +8,7 @@ import Laptop5Image from "../Gamingimages/laptop5.png";
 import Laptop6Image from "../Gamingimages/laptop6.png";
 import Laptop7Image from "../Gamingimages/laptop7.png";
 import BannerImage from "../Gamingimages/banner.jpg";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTh,
@@ -78,7 +79,6 @@ const laptopsData = [
 ];
 
 const GamingLaptops = () => {
-  const [cartItems, setCartItems] = useState([]);
   const [filteredLaptops, setFilteredLaptops] = useState([]);
   const [specsFilter, setSpecsFilter] = useState("");
   const [sortBy, setSortBy] = useState("");
@@ -103,10 +103,6 @@ const GamingLaptops = () => {
 
     setFilteredLaptops(filtered);
   }, [specsFilter, sortBy]);
-
-  const addToCart = (laptop) => {
-    setCartItems([...cartItems, laptop]);
-  };
 
   const toggleViewMode = (mode) => {
     setViewMode(mode);
@@ -180,10 +176,7 @@ const GamingLaptops = () => {
                 <p className="laptop-price">Price: Php{laptop.price}</p>
                 <p className="laptop-specs">Specs: {laptop.specs}</p>
                 <div className="button-container">
-                  <button
-                    className="cart-button"
-                    onClick={() => addToCart(laptop)}
-                  >
+                  <button className="cart-button">
                     <FontAwesomeIcon icon={faCartPlus} /> Add to Cart
                   </button>
                   <button className="wishlist-button">
