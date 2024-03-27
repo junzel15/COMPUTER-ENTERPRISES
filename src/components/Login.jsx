@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { BiUser, BiLockAlt } from "react-icons/bi"; // Importing icons from Boxicons
 import "./Login.css";
 
 const Login = () => {
@@ -8,8 +9,14 @@ const Login = () => {
       <div className="login-box">
         <h2>Login</h2>
         <form>
-          <input type="text" placeholder="Username" />
-          <input type="password" placeholder="Password" />
+          <div className="input-container">
+            <BiUser className="input-icon" />
+            <input type="text" placeholder="Username" />
+          </div>
+          <div className="input-container">
+            <BiLockAlt className="input-icon" />
+            <input type="password" placeholder="Password" />
+          </div>
           <button type="submit">Login</button>
         </form>
 

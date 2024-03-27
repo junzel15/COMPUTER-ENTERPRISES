@@ -1,35 +1,33 @@
-/* Signup.css */
+@keyframes slidein {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 
 .signup-page {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f0f0f0;
 }
 
 .signup-box {
-  background-color: #fff;
-  padding: 40px;
+  animation: slidein 0.5s ease;
+  width: 350px;
+  padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  animation: slideIn 0.5s ease forwards;
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  background-color: #fff;
 }
 
 .signup-box h2 {
-  margin-bottom: 20px;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 form {
@@ -37,38 +35,53 @@ form {
   flex-direction: column;
 }
 
-input {
-  margin-bottom: 10px;
+.input-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-container input {
+  width: calc(
+    100% - 30px
+  ); /* Adjusted width to accommodate icon with padding */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  outline: none;
+  padding-left: 30px; /* Added padding to the left for the icon */
 }
 
-button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+.input-container input:focus {
+  border-color: #007bff;
+}
+
+.input-container .icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 5px; /* Adjusted left position */
+  color: #777;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 10px;
   border: none;
   border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-button:hover {
+button[type="submit"]:hover {
   background-color: #0056b3;
 }
 
 .login-link {
   text-align: center;
   margin-top: 20px;
-  font-size: 14px;
 }
 
 .login-link a {
   color: #007bff;
-  text-decoration: none;
-}
-
-.login-link a:hover {
-  text-decoration: underline;
 }
