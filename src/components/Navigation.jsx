@@ -83,7 +83,7 @@ const Navigation = () => {
       {/* Contact Us */}
       <Link to="/contactus">
         <RiContactsLine className="icon" />
-        <span>Contact Us</span>
+        <span>Contact Support</span>
       </Link>
 
       {/* Cart */}

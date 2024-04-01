@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
+import {
+  FaEnvelope,
+  FaPhone,
+  FaMapMarkerAlt,
+  FaFileImage,
+} from "react-icons/fa";
 import "./Contactus.css";
 
 const Contactus = () => {
@@ -7,6 +12,7 @@ const Contactus = () => {
     name: "",
     email: "",
     message: "",
+    image: null,
   });
 
   const handleChange = (e) => {
@@ -14,17 +20,22 @@ const Contactus = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  const handleImageChange = (e) => {
+    const imageFile = e.target.files[0];
+    setFormData({ ...formData, image: imageFile });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     console.log("Form submitted:", formData);
 
-    setFormData({ name: "", email: "", message: "" });
+    setFormData({ name: "", email: "", message: "", image: null });
   };
 
   return (
     <div className="contact-form-container">
-      <h1>Contact Us</h1>
+      <h1>Contact Support</h1>
       <div className="contact-info">
         <p>You can contact us via the following methods:</p>
         <ul>
@@ -78,6 +89,18 @@ const Contactus = () => {
             onChange={handleChange}
             required
           ></textarea>
+        </div>
+        <div className="form-group">
+          <label htmlFor="image">
+            <FaFileImage /> Upload Image:
+          </label>
+          <input
+            type="file"
+            id="image"
+            name="image"
+            accept="image/*"
+            onChange={handleImageChange}
+          />
         </div>
         <button type="submit">Submit</button>
       </form>

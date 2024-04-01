@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,11 +11,24 @@ import {
 import "./Signup.css";
 
 const Signup = () => {
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    setTimeout(() => {
+      setLoading(false);
+
+      console.log("Form submitted!");
+    }, 2000);
+  };
+
   return (
     <div className="signup-page">
       <div className="signup-box">
         <h2>Sign Up</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="input-container">
             <FontAwesomeIcon icon={faUser} />
             <input type="text" placeholder="Full Name" />
@@ -40,8 +53,17 @@ const Signup = () => {
             <FontAwesomeIcon icon={faPhone} />
             <input type="text" placeholder="Contact Number" />
           </div>
-          <button type="submit">Sign Up</button>
+          <button type="submit" disabled={loading}>
+            {loading ? "Loading..." : "Sign Up"}
+          </button>
         </form>
+        <div className="oauth-buttons">
+          <button className="oauth-button google">Continue with Google</button>
+          <button className="oauth-button facebook">
+            Continue with Facebook
+          </button>
+          <button className="oauth-button apple">Continue with Apple ID</button>
+        </div>
         <div className="login-link">
           Already have an account? <Link to="/login">Login</Link>
         </div>

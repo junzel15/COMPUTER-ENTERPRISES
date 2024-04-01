@@ -37,7 +37,7 @@ label {
 input[type="text"],
 input[type="email"],
 textarea {
-  width: 100%;
+  width: calc(100% - 22px);
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -46,7 +46,7 @@ textarea {
 }
 
 button {
-  width: 100%;
+  width: calc(100% - 22px);
   padding: 10px;
   background-color: #007bff;
   color: #fff;

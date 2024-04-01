@@ -26,7 +26,7 @@ const Footer = () => {
               </a>
             </span>
             <span>
-              <BiMap /> Your Address Here
+              <BiMap /> Dao, Pagadian City, Zamboanga Del Sur, 7016.
             </span>
           </div>
           <div className="socials">
