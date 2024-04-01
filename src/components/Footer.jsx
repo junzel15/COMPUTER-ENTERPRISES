@@ -1,5 +1,5 @@
 import React from "react";
-import "./Footer.css"; // You can style your footer in this CSS file
+import "./Footer.css";
 import { BiPhone, BiEnvelope, BiMap } from "react-icons/bi";
 import { FiFacebook, FiTwitter, FiInstagram } from "react-icons/fi";
 
@@ -43,7 +43,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; 2024 Your Company. All rights reserved.</p>
+        <p>&copy; 2024 EL FLO Computer and Enterprises. All rights reserved.</p>
       </div>
     </footer>
   );
