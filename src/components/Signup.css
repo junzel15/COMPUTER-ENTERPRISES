@@ -117,3 +117,9 @@ button[type="submit"]:hover {
 .login-link a {
   color: #007bff;
 }
+
+@media screen and (max-width: 768px) {
+  .signup-box {
+    max-width: 90%;
+  }
+}

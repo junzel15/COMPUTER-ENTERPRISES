@@ -70,3 +70,9 @@ button:hover {
     transform: translateY(0);
   }
 }
+
+@media screen and (max-width: 768px) {
+  .contact-form-container {
+    max-width: 90%;
+  }
+}

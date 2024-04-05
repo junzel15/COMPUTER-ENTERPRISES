@@ -8,7 +8,7 @@ const Login = () => {
   return (
     <div className="login-page">
       <div className="login-box">
-        <h2>Login</h2>
+        <h2>Sign in</h2>
         <form>
           <div className="input1-container">
             <BiUser className="input1-icon" />

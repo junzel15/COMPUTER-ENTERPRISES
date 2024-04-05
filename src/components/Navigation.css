@@ -13,15 +13,15 @@
   color: #fff;
   text-decoration: none;
   margin: 0 10px;
+  transition: color 0.3s ease;
 }
 
 .navigation a:hover {
-  text-decoration: underline;
+  color: #ffcc00;
 }
 
 .icon {
   margin-right: 5px;
-  color: #fff; /* Set icon color to white */
 }
 
 .logo {
@@ -29,7 +29,6 @@
   margin-right: 10px;
 }
 
-/* Style for dropdown */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -46,13 +45,13 @@
 .dropdown-menu {
   display: none;
   position: absolute;
-  background-color: #333; /* Set dropdown menu background color */
+  background-color: #333;
   min-width: 160px;
   z-index: 1;
 }
 
 .dropdown-menu a {
-  color: black; /* Set dropdown item text color to white */
+  color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -60,6 +59,7 @@
 
 .dropdown-menu a:hover {
   text-decoration: underline;
+  background-color: #444; /* Change background color on hover */
 }
 
 .dropdown:hover .dropdown-menu {
@@ -74,10 +74,37 @@
 .laptop-icon,
 .desktop-icon {
   margin-right: 5px;
-  color: #fff; /* Set combined icon color to white */
 }
 
-.white-bar {
-  background-color: #333;
-  color: #fff;
+@media screen and (max-width: 768px) {
+  .navigation {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navigation a {
+    margin: 10px 0;
+  }
+
+  .dropdown-menu {
+    position: static;
+    display: none;
+    background-color: transparent;
+    min-width: auto;
+  }
+
+  .dropdown-menu a {
+    color: #fff;
+    padding: 10px 0;
+    display: block;
+    border-bottom: 1px solid #fff;
+  }
+
+  .dropdown-menu a:last-child {
+    border-bottom: none;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
 }

@@ -2,14 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { RiContactsLine, RiUserLine } from "react-icons/ri";
 import { BiCart, BiDesktop, BiLaptop } from "react-icons/bi";
+import { FaSignInAlt } from "react-icons/fa";
 import "./Navigation.css";
 import logo from "../HomeLogoimages/Logo.png";
 
 const Navigation = () => {
   return (
     <nav className="navigation">
-      <Link to="/">
-        <span>El Flo Computer and Enterprises</span>
+      <Link to="/" className="logo-link">
+        <span className="company-name">El Flo Computer and Enterprises</span>
         <img
           src={logo}
           alt="El Flo Computer and Enterprises"
@@ -42,16 +43,16 @@ const Navigation = () => {
 
       {/* Desktop PC Dropdown */}
       <div className="dropdown black-bar">
-        <button className="dropdown-toggle" id="dropdown-laptops">
+        <button className="dropdown-toggle" id="dropdown-desktops">
           <BiDesktop className="icon" />
           <span>Desktop PC</span>
         </button>
 
         <div className="dropdown-menu">
-          <Link to="/gaminglaptops" className="dropdown-item">
+          <Link to="/gamingdesktops" className="dropdown-item">
             Gaming Desktop PC
           </Link>
-          <Link to="/laptops/gaming" className="dropdown-item">
+          <Link to="/desktops/office" className="dropdown-item">
             Office Desktop PC
           </Link>
         </div>
@@ -68,10 +69,10 @@ const Navigation = () => {
         </button>
 
         <div className="dropdown-menu">
-          <Link to="/parts/cpu" className="dropdown-item">
-            Laptops Parts
+          <Link to="/parts/laptop" className="dropdown-item">
+            Laptop Parts
           </Link>
-          <Link to="/parts/gpu" className="dropdown-item">
+          <Link to="/parts/desktop" className="dropdown-item">
             Desktop PC Parts
           </Link>
           <Link to="/parts/gpu" className="dropdown-item">
@@ -92,10 +93,10 @@ const Navigation = () => {
         <span>Cart</span>
       </Link>
 
-      {/* Login */}
+      {/* Sign In */}
       <Link to="/login" className="login-bar">
-        <RiUserLine className="icon" />
-        <span>Login</span>
+        <FaSignInAlt className="icon" />
+        <span>Sign In</span>
       </Link>
     </nav>
   );

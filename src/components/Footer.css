@@ -1,14 +1,13 @@
-/* Footer.css */
-
 .footer {
   background-color: #333;
   color: #fff;
-  padding: 50px 0;
+  padding: 50px 20px;
   font-family: Arial, sans-serif;
 }
 
 .footer-content {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   max-width: 1200px;
@@ -61,4 +60,26 @@
 
 .footer-bottom a:hover {
   color: #00bcd4;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-content {
+    padding: 50px 10px;
+  }
+
+  .footer-content {
+    align-items: center;
+  }
+
+  .footer-section {
+    text-align: center;
+  }
+
+  .footer-heading {
+    font-size: 20px;
+  }
+
+  .socials {
+    margin-top: 20px;
+  }
 }

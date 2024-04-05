@@ -8,7 +8,7 @@
 }
 
 .banner1-image img {
-  max-width: 120%;
+  max-width: 100%;
   height: auto;
   border-radius: 10px;
   transition: transform 0.3s ease;
@@ -33,4 +33,15 @@
 .banner1-content p {
   font-size: 1.2rem;
   color: #666;
+}
+
+@media screen and (max-width: 768px) {
+  .banner1-content {
+    margin-left: 0;
+  }
+
+  .banner1-image img {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
 }

@@ -75,26 +75,23 @@ const laptopsData = [
       "Intel Core i7- 10875H, 32GB LPDDR4, 1TB SSD, 15.6 FHD & NVIDIA® GeForce® RTX 2070, Windows 10 Home",
     image: Laptop7Image,
   },
-  // Other laptop data...
 ];
 
 const GamingLaptops = () => {
   const [filteredLaptops, setFilteredLaptops] = useState([]);
   const [specsFilter, setSpecsFilter] = useState("");
   const [sortBy, setSortBy] = useState("");
-  const [viewMode, setViewMode] = useState("grid"); // Default view mode is grid
+  const [viewMode, setViewMode] = useState("grid");
 
   useEffect(() => {
     let filtered = laptopsData;
 
-    // Filter by specs
     if (specsFilter) {
       filtered = filtered.filter((laptop) =>
         laptop.specs.toLowerCase().includes(specsFilter.toLowerCase())
       );
     }
 
-    // Sort by price
     if (sortBy === "priceLowToHigh") {
       filtered.sort((a, b) => a.price - b.price);
     } else if (sortBy === "priceHighToLow") {
@@ -110,7 +107,6 @@ const GamingLaptops = () => {
 
   return (
     <div className="app-container">
-      {/* Banner */}
       <div className="banner">
         <img src={BannerImage} alt="Banner" className="banner-image" />
         <div className="banner-content">
@@ -123,9 +119,7 @@ const GamingLaptops = () => {
         </div>
       </div>
 
-      {/* Sidebar */}
       <div className="sidebar">
-        {/* Filters */}
         <div className="filters-and-sort">
           <div className="filters">
             <select onChange={(e) => setSortBy(e.target.value)} value={sortBy}>
@@ -134,7 +128,7 @@ const GamingLaptops = () => {
               <option value="priceHighToLow">Price: High to Low</option>
             </select>
           </div>
-          {/* Dropdown for filtering by specs */}
+
           <div className="specs-dropdown">
             <select
               onChange={(e) => setSpecsFilter(e.target.value)}
@@ -144,12 +138,10 @@ const GamingLaptops = () => {
               <option value="Intel">Intel</option>
               <option value="AMD">AMD</option>
               <option value="NVIDIA">NVIDIA</option>
-              {/* Add more options as needed */}
             </select>
           </div>
-          {/* View mode toggle */}
+
           <div className="view-mode-toggle">
-            {/* Clickable icons for switching between grid and list views */}
             <div onClick={() => toggleViewMode("grid")}>
               <FontAwesomeIcon icon={faTh} /> Grid View
             </div>
@@ -160,9 +152,7 @@ const GamingLaptops = () => {
         </div>
       </div>
 
-      {/* Main content */}
       <div className="main-content">
-        {/* Laptops */}
         <div className={`laptop-container ${viewMode}`}>
           {filteredLaptops.map((laptop) => (
             <div key={laptop.id} className="laptop-card">
