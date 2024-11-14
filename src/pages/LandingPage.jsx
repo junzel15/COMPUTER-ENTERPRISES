@@ -15,7 +15,6 @@ function LandingPage() {
 
   const [accounts, setAccounts] = useState([]);
 
-
   useEffect(() => {
     const storedAccounts = localStorage.getItem("accounts");
     if (storedAccounts) {
@@ -47,13 +46,13 @@ function LandingPage() {
       const newAccount = { email, password, role };
       const updatedAccounts = [...accounts, newAccount];
       setAccounts(updatedAccounts);
-      localStorage.setItem("accounts", JSON.stringify(updatedAccounts)); 
+      localStorage.setItem("accounts", JSON.stringify(updatedAccounts));
       alert("Account created successfully");
       setIsSignUpModalOpen(false);
       setEmail("");
       setPassword("");
       setConfirmPassword("");
-      setRole("Admin"); 
+      setRole("Admin");
     } else {
       setError("Please fill in all fields.");
     }
@@ -61,11 +60,12 @@ function LandingPage() {
 
   const handleSignInSubmit = () => {
     const account = accounts.find(
-      (acc) => acc.email === email && acc.password === password && acc.role === role
+      (acc) =>
+        acc.email === email && acc.password === password && acc.role === role
     );
 
     if (account) {
-      console.log("Role found:", account.role);  
+      console.log("Role found:", account.role);
       if (account.role === "Admin") {
         navigate("/admin");
       } else if (account.role === "Staff") {
@@ -89,12 +89,16 @@ function LandingPage() {
       </div>
 
       <div className="flex-1 flex flex-col justify-center items-center text-center p-8">
-        <h1 className="text-4xl sm:text-5xl font-semibold text-white mb-6 font-poppins">
+        <h1 className="text-7xl sm:text-7xl font-semibold text-white mb-7 font-poppins">
+          <span className="italic">University of the Philippines</span>
+        </h1>
+        <h1 className="text-2xl sm:text-3xl font-semibold text-white mb-6 font-poppins">
           Inventory Management System
         </h1>
         <p className="text-base sm:text-lg text-gray-100 mb-8 font-poppins">
           Streamline your inventory management effortlessly.
         </p>
+
         <div>
           <button
             onClick={handleSignInClick}
@@ -179,7 +183,11 @@ function LandingPage() {
             <h2 className="text-2xl font-semibold text-center text-teal-600 mb-4 font-poppins">
               Create Account
             </h2>
-            {error && <p className="text-red-500 text-center mb-4 font-poppins">{error}</p>}
+            {error && (
+              <p className="text-red-500 text-center mb-4 font-poppins">
+                {error}
+              </p>
+            )}
             <form onSubmit={handleSignUpSubmit}>
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700 font-poppins">

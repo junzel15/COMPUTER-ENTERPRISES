@@ -1,86 +1,62 @@
-// UserManagement.js
 // eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 
-// eslint-disable-next-line react/prop-types
-function UserManagement({ onAddUser }) {
-  const [isAddUserModalOpen, setIsAddUserModalOpen] = useState(false);
-  const [newUser, setNewUser] = useState({ name: '', role: '', email: '' });
+function UserManagement() {
+  const [users, setUsers] = useState([]);
+  const [newUser, setNewUser] = useState({ name: "", role: "" });
 
-  const openAddUserModal = () => {
-    setIsAddUserModalOpen(true);
-  };
+  // Load users from localStorage on component mount
+  useEffect(() => {
+    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+    setUsers(storedUsers);
+  }, []);
 
-  const closeAddUserModal = () => {
-    setIsAddUserModalOpen(false);
-  };
+  // Handle adding a new user
+  const handleAddUser = (e) => {
+    e.preventDefault();
+    if (!newUser.name || !newUser.role) return;
 
-  const handleAddUser = () => {
-    onAddUser(newUser); 
-    closeAddUserModal();
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setNewUser((prev) => ({ ...prev, [name]: value }));
+    const updatedUsers = [...users, { id: Date.now(), ...newUser }];
+    setUsers(updatedUsers);
+    localStorage.setItem("users", JSON.stringify(updatedUsers)); // Save to localStorage
+    setNewUser({ name: "", role: "" }); // Clear form
   };
 
   return (
-    <div className="p-6 bg-white border border-gray-200 rounded-lg shadow-lg">
-      <h3 className="text-xl font-semibold text-blue-600">User Management</h3>
-      <p className="mt-2 text-gray-600">Manage user accounts, roles, and permissions.</p>
-      <button
-        onClick={openAddUserModal}
-        className="px-4 py-2 mt-4 text-white bg-blue-500 rounded hover:bg-blue-600"
-      >
-        Add User
-      </button>
+    <div>
+      <h2 className="text-2xl font-semibold">Manage Users</h2>
 
-      {isAddUserModalOpen && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
-          <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
-            <h3 className="text-xl font-semibold mb-4">Add New User</h3>
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              value={newUser.name}
-              onChange={handleInputChange}
-              className="w-full mb-2 p-2 border rounded"
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={newUser.email}
-              onChange={handleInputChange}
-              className="w-full mb-2 p-2 border rounded"
-            />
-            <input
-              type="text"
-              name="role"
-              placeholder="Role"
-              value={newUser.role}
-              onChange={handleInputChange}
-              className="w-full mb-4 p-2 border rounded"
-            />
-            <div className="flex justify-end space-x-4">
-              <button
-                onClick={handleAddUser}
-                className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
-              >
-                Save
-              </button>
-              <button
-                onClick={closeAddUserModal}
-                className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600"
-              >
-                Cancel
-              </button>
-            </div>
-          </div>
+      <form onSubmit={handleAddUser} className="my-4">
+        <div className="mb-4">
+          <input
+            type="text"
+            placeholder="Enter name"
+            value={newUser.name}
+            onChange={(e) => setNewUser({ ...newUser, name: e.target.value })}
+            className="p-2 border border-gray-300 rounded-lg mr-2"
+          />
         </div>
-      )}
+        <div className="mb-4">
+          <input
+            type="text"
+            placeholder="Enter role"
+            value={newUser.role}
+            onChange={(e) => setNewUser({ ...newUser, role: e.target.value })}
+            className="p-2 border border-gray-300 rounded-lg mr-2"
+          />
+        </div>
+        <button type="submit" className="bg-green-600 text-white p-2 rounded-lg">
+          Add User
+        </button>
+      </form>
+
+      <ul>
+        {users.map((user) => (
+          <li key={user.id} className="border-b py-2">
+            {user.name} - {user.role}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
