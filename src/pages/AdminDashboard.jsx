@@ -1,8 +1,6 @@
-// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-// Import child components
 import UserManagement from "../modules/admin/UserManagement";
 import InventoryConfig from "../modules/admin/InventoryConfig";
 import RequisitionApprovals from "../modules/admin/RequisitionApprovals";
