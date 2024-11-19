@@ -1,30 +1,40 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext';
-import LandingPage from './pages/LandingPage';
-import AdminDashboard from './pages/AdminDashboard';
-import StaffDashboard from './pages/StaffDashboard';
-import FacultyDashboard from './pages/FacultyDashboard';
-import Footer from './components/Footer';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import routes from "./routes";
+import Home from "./views/Home";
+import Navigation from "./components/Navigation";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import Footer from "./components/Footer";
+import "./App.css";
+import Contactus from "./views/Contactus";
+import Desktop from "./views/Desktop";
+import GamingLaptops from "./components/GamingLaptops";
 
-function App() {
+const App = () => {
   return (
-    <AuthProvider>
-      <Router>
-        <div className="min-h-screen bg-gray-100 flex flex-col">
-          <div className="flex-grow">
-            <Routes>
-              <Route path="/" element={<LandingPage />} />
-              <Route path="/admin" element={<AdminDashboard />} />
-              <Route path="/staff" element={<StaffDashboard />} />
-              <Route path="/faculty" element={<FacultyDashboard />} />
-            </Routes>
-          </div>
-          <Footer />
-        </div>
-      </Router>
-    </AuthProvider>
+    <>
+      <Navigation />
+      <Routes>
+        {routes.map((route, index) => (
+          <Route
+            key={index}
+            path={route.path}
+            element={route.element}
+            exact={route.exact}
+          />
+        ))}
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/contactus" element={<Contactus />} />
+
+        <Route path="/desktop" element={<Desktop />} />
+        <Route path="/gaminglaptops" element={<GamingLaptops />} />
+      </Routes>
+      <Footer />
+    </>
   );
-}
+};
 
 export default App;

@@ -1,0 +1,47 @@
+.home1-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+.banner1-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.banner1-image img:hover {
+  transform: scale(1.1);
+}
+
+.banner1-content {
+  max-width: 600px;
+  text-align: center;
+  margin-left: 20px;
+}
+
+.banner1-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.banner1-content p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+@media screen and (max-width: 768px) {
+  .banner1-content {
+    margin-left: 0;
+  }
+
+  .banner1-image img {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+}
